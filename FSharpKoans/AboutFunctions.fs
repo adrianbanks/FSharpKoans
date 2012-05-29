@@ -17,8 +17,8 @@ type ``about functions``() =
         let result1 = add 2 2
         let result2 = add 5 2
         
-        AssertEquality result1 __
-        AssertEquality result2 __
+        AssertEquality result1 4
+        AssertEquality result2 7
 
     [<Koan>]
     member this.NestingFunctions() =
@@ -29,7 +29,7 @@ type ``about functions``() =
             double(double(x))
 
         let result = quadruple 4
-        AssertEquality result __
+        AssertEquality result 16
 
     [<Koan>]
     member this.AddingTypeAnnotations() =
@@ -41,7 +41,7 @@ type ``about functions``() =
             text.Replace(" ", "")
 
         let auctioneered = sayItLikeAnAuctioneer "going once going twice sold to the lady in red"
-        AssertEquality auctioneered __
+        AssertEquality auctioneered "goingoncegoingtwicesoldtotheladyinred"
 
         //TRY IT: What happens if you remove the type annotation on text?
 
@@ -56,7 +56,7 @@ type ``about functions``() =
 
         let caffinatedReply = caffinate "hello there"
 
-        AssertEquality caffinatedReply __
+        AssertEquality caffinatedReply "HELLO THERE!!!"
 
         (* NOTE: Accessing the suffix variable in the nested caffinate function 
                  is known as a closure. 
