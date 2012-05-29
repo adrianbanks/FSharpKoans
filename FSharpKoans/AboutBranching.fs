@@ -12,7 +12,7 @@ type ``about branching``() =
                 "it's odd!"
                 
         let result = isEven 2                
-        AssertEquality result __
+        AssertEquality result "it's even!"
     
     [<Koan>]
     member this.IfStatementsReturnValues() =
@@ -27,7 +27,7 @@ type ``about branching``() =
             else
                 "no problem here"
 
-        AssertEquality result __
+        AssertEquality result "no problem here"
 
     [<Koan>]
     member this.BranchingWithAPatternMatch() =
@@ -39,8 +39,8 @@ type ``about branching``() =
         let result1 = isApple "apple"
         let result2 = isApple ""
         
-        AssertEquality result1 __
-        AssertEquality result2 __
+        AssertEquality result1 true
+        AssertEquality result2 false
     
     [<Koan>]
     member this.UsingTuplesWithIfStatementsQuicklyBecomesClumsy() =
@@ -57,8 +57,8 @@ type ``about branching``() =
         let person1 = ("Chris", "steak")
         let person2 = ("Dave", "veggies")
         
-        AssertEquality (getDinner person1) __
-        AssertEquality (getDinner person2) __
+        AssertEquality (getDinner person1) "Chris wants 'em some steak"
+        AssertEquality (getDinner person2) "Dave doesn't want red meat"
         
     [<Koan>]
     member this.PatternMatchingIsNicer() =
@@ -73,5 +73,5 @@ type ``about branching``() =
         let person1 = ("Bob", "fish")
         let person2 = ("Sally", "Burger")
         
-        AssertEquality (getDinner person1) __
-        AssertEquality (getDinner person2) __
+        AssertEquality (getDinner person1) "Bob doesn't want red meat"
+        AssertEquality (getDinner person2) "Sally wants 'em some Burger"
