@@ -10,9 +10,9 @@ type ``about lists``() =
         
         //Note: Lists in F# are linked lists, and indexing elements is O(n). 
         
-        AssertEquality list.Head __
-        AssertEquality list.Tail __
-        AssertEquality list.Length __
+        AssertEquality list.Head "apple"
+        AssertEquality list.Tail ["pear"; "grape"; "peach"]
+        AssertEquality list.Length 4
 
         (* .NET developers coming from other languages may be surprised
            that F#'s list type is not the same as the base class library's
@@ -30,8 +30,8 @@ type ``about lists``() =
         //Note: "::" is known as "cons"
         
         AssertEquality ["apple"; "pear"; "grape"; "peach"] third
-        AssertEquality second __
-        AssertEquality first __
+        AssertEquality second ["pear"; "grape"; "peach"]
+        AssertEquality first ["grape"; "peach"]
 
         //What happens if you uncomment the following?
 
@@ -47,8 +47,8 @@ type ``about lists``() =
         let first = ["apple"; "pear"; "grape"]
         let second = first @ ["peach"]
 
-        AssertEquality first __
-        AssertEquality second __
+        AssertEquality first ["apple"; "pear"; "grape"]
+        AssertEquality second ["apple"; "pear"; "grape"; "peach"]
 
     (* THINK ABOUT IT: In general, what performs better for building lists, 
        :: or @? Why?
@@ -61,21 +61,21 @@ type ``about lists``() =
     member this.CreatingListsWithARange() =
         let list = [0..4]
         
-        AssertEquality list.Head __
-        AssertEquality list.Tail __
+        AssertEquality list.Head 0
+        AssertEquality list.Tail [1; 2; 3; 4]
         
     [<Koan>]
     member this.CreatingListsWithComprehensions() =
         let list = [for i in 0..4 do yield i ]
                             
-        AssertEquality list __
+        AssertEquality list [0; 1; 2; 3; 4]
     
     [<Koan>]
     member this.ComprehensionsWithConditions() =
         let list = [for i in 0..10 do 
                         if i % 2 = 0 then yield i ]
                             
-        AssertEquality list __
+        AssertEquality list [0; 2; 4; 6; 8; 10]
 
     [<Koan>]
     member this.TransformingListsWithMap() =
@@ -85,8 +85,8 @@ type ``about lists``() =
         let original = [0..5]
         let result = List.map square original
 
-        AssertEquality original __
-        AssertEquality result __
+        AssertEquality original [0; 1; 2; 3; 4; 5]
+        AssertEquality result [0; 1; 4; 9; 16; 25]
 
     [<Koan>]
     member this.FilteringListsWithWhere() =
@@ -96,8 +96,8 @@ type ``about lists``() =
         let original = [0..5]
         let result = List.filter isEven original
 
-        AssertEquality original __
-        AssertEquality result __
+        AssertEquality original [0; 1; 2; 3; 4; 5]
+        AssertEquality result [0; 2; 4]
 
     [<Koan>]
     member this.DividingListsWithPartition() =
@@ -107,8 +107,8 @@ type ``about lists``() =
         let original = [0..5]
         let result1, result2 = List.partition isOdd original
         
-        AssertEquality result1 __
-        AssertEquality result2 __
+        AssertEquality result1 [1; 3; 5]
+        AssertEquality result2 [0; 2; 4]
 
     (* Note: There are many other useful methods in the List module. Check them
        via intellisense in Visual Studio by typing '.' after List, or online at
