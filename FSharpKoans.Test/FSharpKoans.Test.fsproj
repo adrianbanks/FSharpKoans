@@ -42,8 +42,12 @@
   <ItemGroup>
     <Reference Include="mscorlib" />
     <Reference Include="FSharp.Core" />
+    <Reference Include="MSTestExtensions">
+      <HintPath>..\packages\pUnit.1.0.0\lib\net40\MSTestExtensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>..\packages\NUnit.2.5.10.11092\lib\nunit.framework.dll</HintPath>
+      <HintPath>..\packages\NUnit.2.6.0.12054\lib\nunit.framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="nunit.mocks">
@@ -52,6 +56,10 @@
     </Reference>
     <Reference Include="pnunit.framework">
       <HintPath>..\packages\NUnit.2.5.10.11092\lib\pnunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="pUnit">
+      <HintPath>..\packages\pUnit.1.0.0\lib\net40\pUnit.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
