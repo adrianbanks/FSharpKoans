@@ -8,14 +8,14 @@ type ``about asserts``() =
     [<Koan>]
     member this.AssertTruth() =
         // This should be true
-        Assert false 
+        Assert true 
         
     (* Enlightenment may be more easily achieved with appropriate
        messages. *)
 
     [<Koan>]
     member this.AssertWithMessage() =
-        AssertWithMessage false "This should be true -- Please fix this"
+        AssertWithMessage true "This should be true -- Please fix this"
  
     (* To understand reality, we must compare our expectations against
        reality. *)
@@ -23,11 +23,11 @@ type ``about asserts``() =
     [<Koan>]
     member this.AssertEquality() =
         let expected_value = 1 + 1
-        let actual_value = __
+        let actual_value = 2
      
         AssertEquality expected_value actual_value
  
     // Sometimes we will ask you to fill in the values
     [<Koan>]
     member this.FillInValues() =
-        AssertEquality (1 + 1) __
+        AssertEquality (1 + 1) 2
