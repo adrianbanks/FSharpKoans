@@ -11,7 +11,7 @@ type ``about unit``() =
             ()
 
         let x = sendData "data"
-        AssertEquality x __ //Don't overthink this
+        AssertEquality x () //Don't overthink this
 
     [<Koan>]
     member this.ParameterlessFuncitonsTakeUnitAsTheirArgument() =
@@ -19,4 +19,4 @@ type ``about unit``() =
             "hello"
 
         let result = sayHello()
-        AssertEquality result __
+        AssertEquality result "hello"
