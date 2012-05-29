@@ -11,8 +11,8 @@ type ``about dot net collections``() =
         fruits.Add("apple")
         fruits.Add("pear")
  
-        AssertEquality fruits.[0] __
-        AssertEquality fruits.[1] __
+        AssertEquality fruits.[0] "apple"
+        AssertEquality fruits.[1] "pear"
 
     [<Koan>]
     member this.CreatingDotNetDictionaries() =
@@ -21,8 +21,8 @@ type ``about dot net collections``() =
         addressBook.["Chris"] <- "Ann Arbor"
         addressBook.["SkillsMatter"] <- "London"
 
-        AssertEquality addressBook.["Chris"] __
-        AssertEquality addressBook.["SkillsMatter"] __
+        AssertEquality addressBook.["Chris"] "Ann Arbor"
+        AssertEquality addressBook.["SkillsMatter"] "London"
 
     [<Koan>]
     member this.YouUseCombinatorsWithDotNetTypes() =
@@ -36,5 +36,5 @@ type ``about dot net collections``() =
             |> Seq.map (fun kvp -> sprintf "Name: %s - City: %s" kvp.Key kvp.Value)
             |> Seq.toArray
 
-        AssertEquality verboseBook.[0] __
-        AssertEquality verboseBook.[1] __
+        AssertEquality verboseBook.[0] "Name: Chris - City: Ann Arbor"
+        AssertEquality verboseBook.[1] "Name: SkillsMatter - City: London"
