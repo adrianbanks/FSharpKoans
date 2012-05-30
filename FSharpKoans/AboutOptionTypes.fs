@@ -13,17 +13,17 @@ type ``about option types``() =
     member this.OptionTypesMightContainAValue() =
         let someValue = Some 10
         
-        AssertEquality someValue.IsSome __
-        AssertEquality someValue.IsNone __
-        AssertEquality someValue.Value __
+        AssertEquality someValue.IsSome true
+        AssertEquality someValue.IsNone false
+        AssertEquality someValue.Value 10
 
     [<Koan>]
     member this.OrTheyMightNot() =
         let noValue = None
 
-        AssertEquality noValue.IsSome __
-        AssertEquality noValue.IsNone __
-        AssertThrows<FILL_IN_THE_EXCEPTION> (fun () -> noValue.Value)
+        AssertEquality noValue.IsSome false
+        AssertEquality noValue.IsNone true
+        AssertThrows<System.NullReferenceException> (fun () -> noValue.Value)
 
     [<Koan>]
     member this.UsingOptionTypesWithPatternMatching() =
@@ -44,8 +44,8 @@ type ``about option types``() =
             | Some score -> translate score
             | None -> "Unknown"
 
-        AssertEquality (getScore chronoTrigger) __
-        AssertEquality (getScore gta) __
+        AssertEquality (getScore chronoTrigger) "Great"
+        AssertEquality (getScore gta) "Unknown"
 
     [<Koan>]
     member this.ProjectingValuesFromOptionTypes() =
@@ -58,5 +58,5 @@ type ``about option types``() =
             |> Option.map (fun score -> if score > 3 then "play it" else "don't play")
 
         //HINT: look at the return type of the decide on function
-        AssertEquality (decideOn chronoTrigger) __
-        AssertEquality (decideOn gta) __
+        AssertEquality (decideOn chronoTrigger) (Some "play it")
+        AssertEquality (decideOn gta) None
