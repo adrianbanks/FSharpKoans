@@ -56,6 +56,16 @@ type ``about the stock example``() =
 
     [<Koan>]
     member this.YouGotTheAnswerCorrect() =
-        let result =  __
+        let splitCommas (x:string) = x.Split([|','|])
+        let calculateAbsoluteDifference (x, y) = abs(System.Decimal.Parse(x) - System.Decimal.Parse(y))
+
+        let result = stockData 
+                      |> Seq.skip 1
+                      |> Seq.map splitCommas
+                      |> Seq.toArray
+                      |> Seq.map (fun a -> Array.get a 0, (calculateAbsoluteDifference(Array.get a 4, Array.get a 1)))
+                      |> dict
+                      |> Seq.fold (fun acc elem -> if snd(acc) > elem.Value then acc else (elem.Key, elem.Value)) ("", 0m)
+                      |> fst
         
-        AssertEquality "2012-3-13" result
+        AssertEquality "2012-03-13" result
