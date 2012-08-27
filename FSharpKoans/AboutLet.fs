@@ -1,6 +1,13 @@
 ﻿namespace FSharpKoans
 open FSharpKoans.Core
 
+//---------------------------------------------------------------
+// About Let
+//
+// The let keyword is one of the most fundamental parts of F#.
+// You'll use it in almost every line of F# code you write, so
+// let's get to know it well! (no pun intended)
+//---------------------------------------------------------------
 type ``about let``() =
 
     [<Koan>]
@@ -9,6 +16,9 @@ type ``about let``() =
         
         AssertEquality x 50
     
+    (* In F#, values created with let are inferred to have a type like
+       "int" for integer values, "string" for text values, and "bool" 
+       for true or false values. *)
     [<Koan>]
     member this.LetInfersTheTypesOfValuesWherePossible() =
         let x = 50
@@ -34,6 +44,24 @@ type ``about let``() =
            local varaibles, but type annotations can come in handy in other 
            contexts as you'll see later. *)
     
+    [<Koan>]
+    member this.FloatsAndInts() =
+        (* Depending on your background, you may be surprised to learn that
+           in F#, integers and floating point numbers are different types. 
+           In other words, the following is true. *)
+        let x = 20
+        let typeOfX = x.GetType()
+
+        let y = 20.0
+        let typeOfY = y.GetType()
+
+        //you don't need to modify these
+        AssertEquality typeOfX typeof<int>
+        AssertEquality typeOfY typeof<float>
+
+        //If you're coming from another .NET language, float is F# slang for
+        //the double type.
+
     [<Koan>]
     member this.ModifyingTheValueOfVariables() =
         let mutable x = 100
