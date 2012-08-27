@@ -26,7 +26,7 @@ type ``about asserts``() =
     [<Koan>]
     member this.AssertEquality() =
         let expected_value = 1 + 1
-        let actual_value = __ //start by changing this line
+        let actual_value = 2 //start by changing this line
      
         AssertEquality expected_value actual_value
  
@@ -34,4 +34,4 @@ type ``about asserts``() =
 
     [<Koan>]
     member this.FillInValues() =
-        AssertEquality "foo" __
+        AssertEquality "foo" "foo"

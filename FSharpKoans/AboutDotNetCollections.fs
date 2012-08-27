@@ -18,8 +18,8 @@ type ``about dot net collections``() =
         fruits.Add("apple")
         fruits.Add("pear")
  
-        AssertEquality fruits.[0] __
-        AssertEquality fruits.[1] __
+        AssertEquality fruits.[0] "apple"
+        AssertEquality fruits.[1] "pear"
 
     [<Koan>]
     member this.CreatingDotNetDictionaries() =
@@ -28,8 +28,8 @@ type ``about dot net collections``() =
         addressBook.["Chris"] <- "Ann Arbor"
         addressBook.["SkillsMatter"] <- "London"
 
-        AssertEquality addressBook.["Chris"] __
-        AssertEquality addressBook.["SkillsMatter"] __
+        AssertEquality addressBook.["Chris"] "Ann Arbor"
+        AssertEquality addressBook.["SkillsMatter"] "London"
 
     [<Koan>]
     member this.YouUseCombinatorsWithDotNetTypes() =
@@ -48,15 +48,15 @@ type ``about dot net collections``() =
         //      that you can combine to perform operations on types implementing 
         //      seq/IEnumerable.
 
-        AssertEquality verboseBook.[0] __
-        AssertEquality verboseBook.[1] __
+        AssertEquality verboseBook.[0] "Name: Chris - City: Ann Arbor"
+        AssertEquality verboseBook.[1] "Name: SkillsMatter - City: London"
 
     [<Koan>]
     member this.SkippingElements() =
         let original = [0..5]
         let result = Seq.skip 2 original
         
-        AssertEquality result __
+        AssertEquality result [2..5]
 
     [<Koan>]
     member this.FindingTheMax() =
@@ -70,7 +70,7 @@ type ``about dot net collections``() =
 
         let result = Seq.max values
         
-        AssertEquality result __
+        AssertEquality result 20
     
     [<Koan>]
     member this.FindingTheMaxUsingACondition() =
@@ -80,4 +80,4 @@ type ``about dot net collections``() =
         let names = [| "Harry"; "Lloyd"; "Nicholas"; "Mary"; "Joe"; |]
         let result = Seq.maxBy getNameLength names 
         
-        AssertEquality result __
+        AssertEquality result "Nicholas"

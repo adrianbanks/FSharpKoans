@@ -31,4 +31,4 @@ type ``about the order of evaluation``() =
 
         let result = double <| add 5 8
 
-        AssertEquality result 15
+        AssertEquality result 26
